@@ -52,7 +52,7 @@ resource "aws_eks_node_group" "eks-cluster-nodes-group" {
   }
 
   capacity_type = var.node-group-capacity-type
-  instance_types = var.node-group-instance-types
+  instance_types = [var.node-group-instance-types]
   disk_size = 30
   ami_type = "AL2_x86_64"
 
