@@ -48,7 +48,7 @@ variable "bastion-sg-name" {
 
 variable "key-name" {
   type = string
-  default = "seoul-center-bastion-sg"
+  default = "seoul-center-bastion-key"
   description = "Bastion Host Key Pair 이름 지정"
 }
 
