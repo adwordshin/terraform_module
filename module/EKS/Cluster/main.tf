@@ -35,7 +35,7 @@ resource "aws_iam_role_policy_attachment" "eks-cluster-role-aws-eks-VPCResourceC
 ### Create EKS Cluster
 resource "aws_eks_cluster" "eks-cluster" {
   name     = var.cluster-name
-  role_arn = data.aws_iam_role.eks-cluster-role.arn
+  role_arn = aws_iam_role.eks-cluster-role.arn
 
   enabled_cluster_log_types = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
 
