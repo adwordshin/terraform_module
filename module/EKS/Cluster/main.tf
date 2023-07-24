@@ -50,8 +50,8 @@ resource "aws_eks_cluster" "eks-cluster" {
   }
 
   depends_on = [
-    aws_iam_role_policy.eks-cluster-role-aws-eks-cluster-policy,
-	aws_iam_role_policy.eks-cluster-role-aws-eks-VPCResourceController
+    aws_iam_role_policy_attachment.eks-cluster-role-aws-eks-cluster-policy,
+	aws_iam_role_policy_attachment.eks-cluster-role-aws-eks-VPCResourceController
   ]
 }
 
