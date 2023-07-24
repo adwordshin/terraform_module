@@ -2,8 +2,9 @@ data "aws_iam_role" "cluster-role" {
   filter {
     name = "tag:Name"
     values = [var.cluster-role-name]
-   }
+  }
 }
+
 data "aws_security_group" "cluster-sg" {
   filter {
     name = "tag:Name"
