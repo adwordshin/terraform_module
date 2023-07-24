@@ -1,8 +1,5 @@
 data "aws_eks_cluster" "eks-cluster" {
-  filter {
-    name = "tag:Name"
-    values = [var.eks-cluster-name]
-  }
+  name = var.eks-cluster-name
 }
 
 data "aws_subnet" "pvt-2a-name" {
