@@ -114,14 +114,6 @@ resource "aws_eks_addon" "eks-cluster-vpc-cni" {
   addon_version = "v1.12.6-eksbuild.2"
   service_account_role_arn = aws_iam_role.eks-cluster-vpc-cni-role.arn
 }
-
-resource "aws_eks_addon" "eks-cluster-coredns" {
-  cluster_name = aws_eks_cluster.eks-cluster.name
-  addon_name = "coredns"
-  addon_version = "v1.10.1-eksbuild.1"
-  service_account_role_arn = aws_iam_role.eks-cluster-vpc-cni-role.arn
-}
-
 resource "aws_eks_addon" "eks-cluster-kube-proxy" {
   cluster_name = aws_eks_cluster.eks-cluster.name
   addon_name   = "kube-proxy"
