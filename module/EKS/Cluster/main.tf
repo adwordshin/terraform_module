@@ -16,6 +16,10 @@ resource "aws_iam_role" "eks-cluster-role" {
     ]
 }
 POLICY
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 resource "aws_iam_role_policy_attachment" "eks-cluster-role-aws-eks-cluster-policy" {
