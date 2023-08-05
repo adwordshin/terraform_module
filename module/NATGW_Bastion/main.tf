@@ -53,26 +53,7 @@ resource "aws_instance" "create-bastion" {
       Name = "bastion-block-device"
     }
   }
-  user_data = <<-EOF
-              #! /bin/bash
-              hostnamectl set-hostname create-bastion
-              yum -y update
-              yum install -y bash-completion tree jq git htop go
-              curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-              unzip awscliv2.zip >/dev/null 2>&1
-              sudo ./aws/install
-              echo "export AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION" >> /etc/profile
-              curl -LO https://dl.k8s.io/release/v1.22.2/bin/linux/amd64/kubectl
-              install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-              chmod +x ./kubectl
-              mv ./kubectl /usr/local/bin
-              source <(kubectl completion bash)
-              echo "source <(kubectl completion bash)" >> ~/.bashrc
-              source /usr/share/bash-completion/bash_completion
-              echo 'alias k=kubectl' >>~/.bashrc
-              echo 'complete -o default -F __start_kubectl k' >>~/.bashrc
-              exec bash
-	      EOF
+
   tags = {
     Name = var.bastion-name
   }
